@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Rebound Jerseys",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -11,77 +11,112 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Overview",
         "groups": [
           {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
+            "group": "Start here",
+            "pages": ["index", "repository-map", "technology-stack"]
+          }
+        ]
+      },
+      {
+        "tab": "Platform",
+        "groups": [
           {
-            "group": "Customization",
+            "group": "Architecture",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "high-level-architecture",
+              "system-architecture",
+              "service-boundaries",
+              "data-flow",
+              "request-lifecycle",
+              "image-upload-lifecycle"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Marketplace",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Commerce",
             "pages": [
-              "api-reference/introduction"
+              "marketplace/overview",
+              "marketplace/listings",
+              "marketplace/orders",
+              "marketplace/messages"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Backend",
+        "groups": [
+          {
+            "group": "Core",
+            "pages": ["backend/overview", "backend/apis", "backend/integrations"]
+          }
+        ]
+      },
+      {
+        "tab": "Database",
+        "groups": [
+          {
+            "group": "Supabase",
+            "pages": ["database/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Infrastructure",
+        "groups": [
+          {
+            "group": "Platform",
+            "pages": ["infrastructure/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Operations",
+        "groups": [
+          {
+            "group": "Onboarding",
+            "pages": [
+              "onboarding/local-development",
+              "onboarding/repository-structure",
+              "onboarding/development-workflow",
+              "onboarding/environment-variables",
+              "onboarding/deployment-overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          {
+            "group": "Living reference",
+            "pages": [
+              "reference/glossary",
+              "reference/architecture-decisions",
+              "reference/external-integrations",
+              "reference/coding-conventions",
+              "reference/documentation-standards"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "External systems",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "placeholders/ai-jersey-scanner",
+              "placeholders/authentication-platform",
+              "placeholders/prompt-engineering",
+              "placeholders/vision-models",
+              "placeholders/authentication-pipeline"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -101,16 +136,7 @@
     }
   },
   "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
   },
   "footer": {
     "socials": {

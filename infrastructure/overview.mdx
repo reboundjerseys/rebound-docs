@@ -1,0 +1,29 @@
+---
+title: Infrastructure Overview
+description: The runtime and hosting layers that support the platform.
+---
+
+# Infrastructure Overview
+
+## Verified infrastructure
+
+- Supabase for database, storage, auth, and edge functions
+- Render for the scanner service
+- Render for the backend production host through automated GitHub integration
+- Docker for Python service development
+- Mintlify for the documentation site
+
+## Verified but incomplete
+
+- Mobile releases use Expo CLI commands
+
+## Source anchors
+
+- `src/backend/supabase`
+- `render.yaml` in the scanner repository
+- `Dockerfile.prod` in the scanner repository
+
+See also:
+
+- [Deployment overview](/onboarding/deployment-overview)
+- [Technology stack](/technology-stack)

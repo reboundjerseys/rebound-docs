@@ -1,0 +1,53 @@
+---
+title: System Architecture
+description: The platform organized by responsibility, not by repository.
+---
+
+# System Architecture
+
+Rebound Jerseys is a single product with multiple specialized systems.
+
+## System layers
+
+1. User-facing applications
+   - web marketplace and admin surface
+   - mobile marketplace and scanner surface
+   - docs site
+2. Platform services
+   - backend API
+   - Supabase edge functions
+   - scanner service
+   - authentication prototype
+3. Data services
+   - Supabase Postgres
+   - Supabase Storage
+   - Algolia search index
+4. External services
+   - Stripe
+   - OpenAI
+   - eBay
+   - Discord
+   - Make
+   - Google
+   - Cybership
+   - EasyPost
+
+## Boundary rule
+
+Each system owns one job and publishes data to the next system through a narrow interface.
+That is why docs should explain responsibilities and flows, not file trees.
+
+## Source anchors
+
+- `src/backend/server/server.ts`
+- `src/backend/routes/search.ts`
+- `src/backend/routes/ebay.ts`
+- `src/backend/supabase`
+- `src/web/lib/backend-proxy.ts`
+
+See also:
+
+- [Service boundaries](/service-boundaries)
+- [Repository map](/repository-map)
+- [Glossary](/reference/glossary)
+

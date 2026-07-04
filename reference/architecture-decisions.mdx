@@ -1,0 +1,27 @@
+---
+title: Architecture Decisions
+description: A living list of architectural decisions that should eventually become ADRs.
+---
+
+# Architecture Decisions
+
+This page is a living index, not a finished ADR archive.
+
+## Current decisions to preserve
+
+| Decision | Why it matters | Source anchors |
+| --- | --- | --- |
+| Keep a legacy Stripe proxy until older clients age out | Avoids breaking older app versions while edge functions own the real payment work | `src/backend/routes/stripe.ts` |
+| Use Algolia as the derived search layer | Keeps search fast without making the database the search engine | `src/backend/routes/search.ts`, `src/backend/algolia` |
+| Route scanner output into product creation | Lets analysis feed marketplace data instead of stopping at raw AI output | `src/backend/services/scanner/scannerService.ts` |
+| Keep authenticity as a separate experimental service | Prevents the main platform from depending on unfinished verification logic | `rebound-jersey-authentication` |
+
+## ADR rule
+
+When a decision becomes hard to reverse, document it here and link it from the owning page.
+
+See also:
+
+- [Documentation standards](/reference/documentation-standards)
+- [Repository map](/repository-map)
+

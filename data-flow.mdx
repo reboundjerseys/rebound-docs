@@ -1,0 +1,61 @@
+---
+title: Data Flow
+description: How data moves through the platform for the major product flows.
+---
+
+# Data Flow
+
+## Browse and search
+
+```mermaid
+flowchart LR
+  Client[Web or mobile client] --> Backend[Backend API]
+  Backend --> Search[Algolia]
+  Search --> Backend
+  Backend --> Client
+```
+
+## Create a listing
+
+```mermaid
+flowchart LR
+  Client[Web or mobile client] --> Backend[Backend API]
+  Backend --> DB[(Supabase)]
+  Backend --> Search[Algolia]
+  Backend --> External[Stripe / eBay / notifications]
+```
+
+## Image analysis
+
+```mermaid
+flowchart LR
+  Upload[Upload image] --> Storage[(Supabase Storage)]
+  Storage --> Backend[Backend API]
+  Backend --> Scanner[Scanner service]
+  Scanner --> Backend
+  Backend --> DB[(Supabase)]
+```
+
+## Authenticity check
+
+```mermaid
+flowchart LR
+  Image[Input image] --> Auth[Authentication prototype]
+  Auth --> Pinecone[(Pinecone)]
+  Pinecone --> Auth
+```
+
+## Why this matters
+
+These flows make the platform easier to reason about:
+
+- clients submit data
+- the backend coordinates work
+- persistence happens in Supabase
+- search and AI systems derive secondary data
+
+See also:
+
+- [Image upload lifecycle](/image-upload-lifecycle)
+- [Request lifecycle](/request-lifecycle)
+

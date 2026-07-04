@@ -1,0 +1,29 @@
+---
+title: Request Lifecycle
+description: The standard path a platform request takes through the backend.
+---
+
+# Request Lifecycle
+
+1. A client sends a request to the backend or to a web API route that proxies to the backend.
+2. The request is authenticated when the route requires it.
+3. The backend validates inputs and narrows the request to a service responsibility.
+4. The backend reads or writes Supabase data, or calls an external service.
+5. The backend returns a response and the client updates its state.
+
+## What to look for in code
+
+- `src/backend/server/server.ts` for top-level middleware and route mounting
+- `src/backend/routes/*` for route-level behavior
+- `src/web/lib/backend-proxy.ts` for authenticated web proxying
+
+## Why the lifecycle is separate from implementation details
+
+The same lifecycle applies to many routes.
+That makes it a better handbook page than a file-by-file explanation.
+
+See also:
+
+- [Service boundaries](/service-boundaries)
+- [Backend overview](/backend/overview)
+

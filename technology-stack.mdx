@@ -1,0 +1,75 @@
+---
+title: Technology Stack
+description: The platform stack grouped by responsibility.
+---
+
+# Technology Stack
+
+## Frontend
+
+- Next.js web app in `src/web`
+- Expo / React Native app in `src/frontend`
+- Mintlify docs site in this repository
+
+## Backend
+
+- Express API in `src/backend/server/server.ts`
+- Route modules in `src/backend/routes`
+- Integration services in `src/backend/services`
+- Utility and domain helpers in `src/backend/lib`
+
+## Database
+
+- Supabase Postgres
+- Supabase Storage
+- Supabase Edge Functions
+- Row-level security and triggers
+
+## Infrastructure
+
+- Vercel for the docs site and likely web hosting
+- Render for the scanner service
+- Container-based local development for Python services
+- Managed secrets through environment variables
+
+## Hosting and delivery
+
+- Backend deploys through Render via automated GitHub integration
+- Web deploys through the GitHub-to-Vercel integration
+- Mobile releases use Expo CLI commands
+
+## Analytics
+
+- PostHog
+- Vercel analytics on the web stack
+
+## Authentication
+
+- Supabase auth/session handling
+- `rebound-jersey-authentication` for the experimental vision-based authenticity flow
+
+## Payments
+
+- Stripe
+- Stripe Connect edge functions
+
+## Notifications
+
+- Discord
+- OneSignal
+- Supabase notification functions
+- Make webhooks
+
+## Search
+
+- Algolia
+
+## AI placeholders
+
+- OpenAI-backed jersey scanner
+- CLIP plus Pinecone authenticity prototype
+
+See also:
+
+- [External integrations](/reference/external-integrations)
+- [Environment variables](/onboarding/environment-variables)

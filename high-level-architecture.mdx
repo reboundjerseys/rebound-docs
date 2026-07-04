@@ -1,0 +1,54 @@
+---
+title: High-level Architecture
+description: The main applications, services, storage, and integration points in one view.
+---
+
+# High-level Architecture
+
+```mermaid
+flowchart LR
+  Web[Web app]
+  Mobile[Mobile app]
+  Backend[Backend API]
+  DB[(Supabase Postgres)]
+  Storage[(Supabase Storage)]
+  Search[(Algolia)]
+  Payments[(Stripe)]
+  AI[(OpenAI scanner)]
+  External[External systems]
+  Auth[Auth prototype]
+
+  Web --> Backend
+  Mobile --> Backend
+  Backend <--> DB
+  Backend <--> Storage
+  Backend --> Search
+  Backend --> Payments
+  Backend --> AI
+  Backend --> External
+  Backend -. placeholder .-> Auth
+```
+
+## What this means
+
+- Clients do not talk to the database directly for core workflows.
+- The backend coordinates marketplace state, sync, moderation, and external service calls.
+- Supabase stores the source data, file assets, and derived workflow state.
+- Algolia stores the searchable marketplace index.
+- Specialized AI work lives outside the main repository boundaries.
+
+## Main code anchors
+
+- `src/backend/server/server.ts`
+- `src/backend/services/scanner/scannerService.ts`
+- `src/backend/services/warehouseIntakeService.ts`
+- `src/backend/routes/ebay.ts`
+- `src/web/app`
+- `src/frontend/app`
+
+See also:
+
+- [System architecture](/system-architecture)
+- [Data flow](/data-flow)
+- [Request lifecycle](/request-lifecycle)
+

@@ -1,0 +1,31 @@
+---
+title: Orders
+description: Order flow, payment handoff, and downstream side effects.
+---
+
+# Orders
+
+Orders are the committed purchase state in the platform.
+They connect checkout, payment processing, notifications, and shipment handling.
+
+## What orders depend on
+
+- Stripe payment flow
+- Supabase persistence
+- notification functions
+- shipment records
+- moderation and refund workflows
+
+## Source anchors
+
+- `src/backend/routes/stripe.ts`
+- `src/backend/supabase/functions/create-payment-intent`
+- `src/backend/supabase/functions/capture_payment_intent`
+- `src/backend/supabase/functions/refund_order`
+- `src/backend/supabase/functions/cancel_order`
+
+See also:
+
+- [Backend overview](/backend/overview)
+- [Data flow](/data-flow)
+

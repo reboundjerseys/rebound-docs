@@ -1,0 +1,24 @@
+---
+title: Development Workflow
+description: The workflow for adding and maintaining docs.
+---
+
+# Development Workflow
+
+1. Read the inventory and source code for the system you are documenting.
+2. Decide whether the page belongs in `overview`, `platform`, `backend`, `marketplace`, `database`, `infrastructure`, `operations`, or `reference`.
+3. Write the page around system responsibility and developer questions.
+4. Link to related pages instead of duplicating whole explanations.
+5. Mark anything uncertain as `TODO: Needs Investigation`.
+6. Update `docs.json` navigation if the new page should be discoverable.
+7. Run `mint broken-links`.
+
+## Working rule
+
+If a system does not live in this repository, add a placeholder page instead of inventing details.
+
+See also:
+
+- [Documentation standards](/reference/documentation-standards)
+- [Coding conventions](/reference/coding-conventions)
+

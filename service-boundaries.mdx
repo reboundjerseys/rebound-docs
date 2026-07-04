@@ -1,0 +1,47 @@
+---
+title: Service Boundaries
+description: What each platform service owns and what it does not own.
+---
+
+# Service Boundaries
+
+## Backend API
+
+Owns marketplace APIs, admin APIs, integrations, and orchestration.
+It should not become the place where business logic leaks into clients.
+
+## Web app
+
+Owns the browser experience, routing, and client-side composition.
+It proxies many authenticated requests through `src/web/lib/backend-proxy.ts`.
+
+## Mobile app
+
+Owns the mobile experience, scanner capture, and device-specific UX.
+
+## Scanner service
+
+Owns jersey analysis and listing generation.
+It should remain a specialized AI service, not a general marketplace API.
+
+## Authentication prototype
+
+Owns image-based authenticity scoring.
+It is isolated until the corresponding repository is fully documented here.
+
+## Supabase
+
+Owns persistence, object storage, and database-level automation.
+
+## Boundary checks
+
+- If a feature needs to query shared product state, prefer the backend and database.
+- If a feature needs AI analysis, route it to the scanner or auth service.
+- If a feature only shapes UI, keep it in the client.
+
+See also:
+
+- [High-level architecture](/high-level-architecture)
+- [Data flow](/data-flow)
+- [External integrations](/reference/external-integrations)
+

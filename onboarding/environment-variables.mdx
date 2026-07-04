@@ -1,0 +1,53 @@
+---
+title: Environment Variables
+description: Non-secret environment variable groups used across the platform.
+---
+
+# Environment Variables
+
+This page records variable names and purposes, not secret values.
+
+## Backend
+
+- `NODE_ENV`
+- `FRONTEND_URL`
+- `ADMIN_EMAILS`
+- `SUPABASE_URL`
+- `SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+## Web
+
+- `NEXT_PUBLIC_API_URL`
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `NEXT_PUBLIC_POSTHOG_KEY`
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+- `NEXT_PUBLIC_ONESIGNAL_APP_ID`
+
+## Mobile
+
+- `EXPO_PUBLIC_API_URL`
+- `EXPO_PUBLIC_SUPABASE_URL`
+- `EXPO_PUBLIC_SCAN_API_URL`
+- `EXPO_PUBLIC_POSTHOG_PROJECT_API_KEY`
+- `EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+
+## Scanner and authentication placeholders
+
+- `OPENAI_API_KEY`
+- `GPT_MODEL_NAME`
+- `USE_FILE_IDS`
+- `PINECONE_API_KEY`
+- `PINECONE_INDEX_NAME`
+
+## Rule
+
+Keep secrets in the deployment environment.
+Do not document secret values in the site.
+
+See also:
+
+- [Technology stack](/technology-stack)
+- [Deployment overview](/onboarding/deployment-overview)
+

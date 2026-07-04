@@ -1,0 +1,28 @@
+---
+title: External Integrations
+description: The external services the platform depends on.
+---
+
+# External Integrations
+
+| Integration | Purpose | Source anchors |
+| --- | --- | --- |
+| Supabase | Database, auth, storage, edge functions | `src/backend/supabase`, `src/backend/env/env.ts` |
+| Stripe | Payments and connected accounts | `src/backend/routes/stripe.ts`, `src/backend/supabase/functions` |
+| Algolia | Search and facets | `src/backend/routes/search.ts`, `src/backend/algolia` |
+| OpenAI | Jersey analysis and generation | `src/backend/services/scanner/scannerService.ts`, scanner repo |
+| eBay | Marketplace sync and import | `src/backend/routes/ebay.ts` |
+| Discord | Feedback and moderation notifications | `src/backend/routes/discord.ts` |
+| Google | Merchant sync and auth surfaces | `src/backend/routes/googleMerchant.ts` |
+| Cybership | Warehouse product and order flows | `src/backend/routes/cybership.ts` |
+| EasyPost | Address verification and shipping support | `src/backend/routes/userAddresses.ts` |
+| Make | Automation and webhooks | `src/backend/routes/feedback.ts`, `src/backend/routes/reports.ts` |
+| Notion | Scan accuracy tracking | `src/backend/routes/scanAccuracy.ts` |
+| Bria | Background removal and image operations | `src/backend/routes/bria.ts` |
+| Pinecone | Authenticity similarity search | `rebound-jersey-authentication` |
+
+See also:
+
+- [Backend integrations](/backend/integrations)
+- [Technology stack](/technology-stack)
+

@@ -1,0 +1,33 @@
+---
+title: Backend APIs
+description: The backend API surface at a conceptual level.
+---
+
+# Backend APIs
+
+The backend exposes HTTP routes for a small number of platform concerns:
+
+- user and auth flows
+- marketplace search
+- reporting and moderation
+- scanner ingestion
+- eBay operations, which are internal-view only
+- warehouse intake
+- payment and notification bridges
+- internal sync operations
+
+The API surface is intentionally broad because it sits between the clients and the shared data model.
+
+## Route anchors
+
+- `src/backend/server/server.ts`
+- `src/backend/routes/auth.ts`
+- `src/backend/routes/search.ts`
+- `src/backend/routes/ebay.ts`
+- `src/backend/routes/warehouseIntakes.ts`
+- `src/backend/routes/scanner.ts`
+
+See also:
+
+- [Request lifecycle](/request-lifecycle)
+- [Service boundaries](/service-boundaries)

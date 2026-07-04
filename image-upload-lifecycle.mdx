@@ -1,0 +1,41 @@
+---
+title: Image Upload Lifecycle
+description: How an uploaded jersey image moves through storage, analysis, and downstream systems.
+---
+
+# Image Upload Lifecycle
+
+The platform has more than one image path.
+The main ones are marketplace uploads, scanner uploads, and warehouse intake photos.
+
+## Common lifecycle
+
+```mermaid
+flowchart LR
+  Upload[Upload image] --> Storage[(Supabase Storage)]
+  Storage --> Process[Processing step]
+  Process --> AI[AI analysis]
+  AI --> Product[Product or listing data]
+  Product --> Search[Search index]
+```
+
+## Where each path lands
+
+- Marketplace images support listings and profile content.
+- Scanner images support attribute extraction and listing creation.
+- Warehouse intake images support intake automation.
+- Authentication images support reference matching.
+
+## Main code anchors
+
+- `src/frontend/lib/scanUploadService.ts`
+- `src/backend/services/scanner/scannerService.ts`
+- `src/backend/services/warehouseIntakeService.ts`
+- `src/backend/routes/bria.ts`
+- `src/backend/supabase/functions/create-product-from-scan`
+
+See also:
+
+- [Data flow](/data-flow)
+- [Technology stack](/technology-stack)
+

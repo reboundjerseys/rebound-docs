@@ -1,0 +1,30 @@
+---
+title: Deployment Overview
+description: What is known about hosting and what still needs confirmation.
+---
+
+# Deployment Overview
+
+## Verified
+
+- The docs site is Mintlify.
+- The scanner service is Render-hosted.
+- The backend production host is Render, deployed through an automated GitHub integration.
+- Supabase provides the data and edge-function layer.
+- The web app is deployed through the GitHub-to-Vercel integration.
+- The mobile app release process uses Expo CLI commands.
+
+## Not yet fully verified
+
+- The authentication prototype is fully isolated from the main production workflow.
+
+## How to think about deployment
+
+Each repository has its own runtime boundary.
+Deploy the thing that owns the code.
+Do not merge runtime responsibilities just because they talk to each other.
+
+See also:
+
+- [Infrastructure overview](/infrastructure/overview)
+- [Repository map](/repository-map)

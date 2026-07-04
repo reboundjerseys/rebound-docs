@@ -1,0 +1,39 @@
+---
+title: Database Overview
+description: How Supabase is used for persistence, storage, and automation.
+---
+
+# Database Overview
+
+Supabase is the platform data layer.
+It stores the marketplace model, powers auth-adjacent flows, and runs derived automation.
+
+## What lives there
+
+- product and listing state
+- orders and shipments
+- messages and conversations
+- user and profile data
+- reports and moderation data
+- eBay sync state
+- warehouse intake state
+- storage objects
+
+## Database responsibilities
+
+- persist source of truth data
+- enforce access rules
+- trigger notifications and sync
+- expose storage buckets for uploads
+
+## Source anchors
+
+- `src/backend/supabase/config.toml`
+- `src/backend/supabase/storage_schema.sql`
+- `src/backend/supabase/migrations`
+
+See also:
+
+- [External integrations](/reference/external-integrations)
+- [Image upload lifecycle](/image-upload-lifecycle)
+

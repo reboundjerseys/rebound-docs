@@ -1,0 +1,36 @@
+---
+title: Backend Overview
+description: What the backend owns and why it exists.
+---
+
+# Backend Overview
+
+The backend is the platform control plane.
+It owns shared marketplace state, integration orchestration, and operational endpoints.
+
+## Responsibilities
+
+- authentication-adjacent user flows
+- marketplace search and sync
+- eBay integration
+- warehouse intake
+- scanner orchestration
+- moderation and reporting
+- Google Merchant sync
+- Bria image operations
+- Discord notifications
+- Cybership push flows
+
+## Source anchors
+
+- `src/backend/server/server.ts`
+- `src/backend/routes`
+- `src/backend/services`
+- `src/backend/supabase`
+
+## Related pages
+
+- [Backend APIs](/backend/apis)
+- [Backend integrations](/backend/integrations)
+- [Request lifecycle](/request-lifecycle)
+
