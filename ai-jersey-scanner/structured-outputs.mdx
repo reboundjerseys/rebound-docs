@@ -1,0 +1,49 @@
+---
+title: Structured Outputs
+description: The request and response models the scanner validates.
+---
+
+# Structured Outputs
+
+The scanner relies on Pydantic models and Responses API JSON parsing.
+That keeps image results and insight payloads deterministic enough for downstream automation.
+
+## Response models
+
+| Model | Shape | Used by |
+| --- | --- | --- |
+| `AttributeResponse` | brand, size, team, league, sport, player | basic extraction |
+| `ModelIdentificationResponse` | model | model identification |
+| `TitleDescriptionResponse` | title, description | listing generation |
+| `HexCodes` | colors[] | color palette extraction |
+| `ProductFullyInFrameResponse` | image_in_frame | full-frame helper |
+| `MultipleJerseysDetectionResponse` | multiple_jerseys, jersey_clusters[] | multi-jersey detection |
+| `InsightResponse` | listing_insights, user_insights, comment_insights, brand_insights, model_insights | listing insight extraction |
+
+## Request models
+
+| Model | Shape | Used by |
+| --- | --- | --- |
+| `ProcessImagesFileIdsRequest` | file_ids, metadata, multiple_jerseys, supabase_paths, posthog_distinct_id | `/process-images/file-ids` |
+| `ProcessListingRequest` | listing fields plus comment_threads | `/extract-info-listing` |
+| `CommentThread` | recursive thread tree | listing insight extraction |
+| `ImageFileMetadata` | OpenAI and Supabase file metadata | file-id workflow |
+
+## Parsing rules
+
+- `run_image_response` converts OpenAI output into JSON and validates it with the target model.
+- Empty responses retry with a larger output budget.
+- Code fences and Python `None` are cleaned before parsing.
+- GPT-5 calls use `temperature=None`; older model calls may still use a low temperature.
+
+## Route outputs
+
+- `/process-images`, `/process-images-with-files`, and `/process-images/file-ids` return `title`, `description`, and merged `attributes`.
+- `/process-images/file-ids` also returns `supabase_paths` when the client sends them.
+- `/color-palette` returns `palette.colors`.
+
+## Related pages
+
+- [Prompting](/ai-jersey-scanner/prompting)
+- [Evaluations](/ai-jersey-scanner/evaluations)
+- [Developer guide](/ai-jersey-scanner/developer-guide)

@@ -19,15 +19,17 @@ It proxies many authenticated requests through `src/web/lib/backend-proxy.ts`.
 
 Owns the mobile experience, scanner capture, and device-specific UX.
 
-## Scanner service
+## AI Jersey Scanner
 
-Owns jersey analysis and listing generation.
+Owns jersey analysis, multi-jersey detection, title and description generation, color palette extraction, and insight extraction.
 It should remain a specialized AI service, not a general marketplace API.
+See [AI Jersey Scanner](/ai-jersey-scanner).
 
-## Authentication prototype
+## Authentication service
 
 Owns image-based authenticity scoring.
-It is isolated until the corresponding repository is fully documented here.
+It stays a narrow service boundary with its own docs.
+See [Authentication](/authentication).
 
 ## Supabase
 
@@ -44,4 +46,4 @@ See also:
 - [High-level architecture](/high-level-architecture)
 - [Data flow](/data-flow)
 - [External integrations](/reference/external-integrations)
-
+- [AI Jersey Scanner](/ai-jersey-scanner)

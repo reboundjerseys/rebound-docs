@@ -1,0 +1,58 @@
+---
+title: AI Jersey Scanner
+description: Dedicated docs for jersey analysis, prompt orchestration, structured outputs, and listing generation.
+---
+
+# AI Jersey Scanner
+
+The scanner is a separate repository and service.
+It turns jersey images into structured attributes, model guesses, color palettes, listing copy, and insight payloads.
+
+The platform backend sends images to it, then uses the outputs in marketplace, moderation, and warehouse flows.
+
+## What it owns
+
+- jersey attribute extraction
+- jersey model identification
+- multi-jersey detection
+- title and description generation
+- color palette extraction
+- listing, comment, user, brand, and model insight extraction
+- PostHog-backed LLM observability
+
+## Start here
+
+<Columns cols={2}>
+  <Card title="Architecture" icon="diagram-project" href="/ai-jersey-scanner/architecture">
+    See the services, dependencies, and runtime boundaries.
+  </Card>
+  <Card title="Image pipeline" icon="images" href="/ai-jersey-scanner/image-pipeline">
+    Trace uploads through extraction, generation, and cleanup.
+  </Card>
+  <Card title="Vision models" icon="brain" href="/ai-jersey-scanner/vision-models">
+    Review the model knobs and brand-specific model map.
+  </Card>
+  <Card title="Prompting" icon="comment-dots" href="/ai-jersey-scanner/prompting">
+    Read the system prompts and where each one is used.
+  </Card>
+  <Card title="Structured outputs" icon="file-code" href="/ai-jersey-scanner/structured-outputs">
+    See the request and response shapes the API validates.
+  </Card>
+  <Card title="Evaluations" icon="chart-line" href="/ai-jersey-scanner/evaluations">
+    Review the saved reports and the mismatch checks.
+  </Card>
+  <Card title="Operations" icon="satellite-dish" href="/ai-jersey-scanner/observability">
+    Follow the tracing, alerts, and failure handling.
+  </Card>
+  <Card title="Developer guide" icon="terminal" href="/ai-jersey-scanner/developer-guide">
+    Run the service locally and validate the workflow.
+  </Card>
+</Columns>
+
+## Related platform pages
+
+- [Repository map](/repository-map)
+- [Service boundaries](/service-boundaries)
+- [High-level architecture](/high-level-architecture)
+- [Integration registry](/engineering-knowledge/integration-registry)
+- [Image upload lifecycle](/image-upload-lifecycle)

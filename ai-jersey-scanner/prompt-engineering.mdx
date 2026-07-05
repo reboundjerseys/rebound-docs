@@ -1,0 +1,52 @@
+---
+title: Prompt Engineering
+description: Prompt families, structured outputs, and model-specific guidance for the scanner.
+---
+
+# Prompt Engineering
+
+Prompt design is split by task, not by one monolithic prompt.
+That keeps extraction, generation, and insight work easy to tune without changing unrelated workflows.
+
+## Prompt families
+
+| Prompt family | Purpose | Typical output |
+| --- | --- | --- |
+| Extraction | Pulls jersey attributes from an image. | Structured attribute payloads |
+| Title and description | Writes marketplace copy from extracted data. | Title and description text |
+| Jersey model identification | Identifies hockey jersey models. | Model identification response |
+| Palette extraction | Pulls dominant colors from an image. | Hex color list |
+| Listing insight | Summarizes listing-level signals. | Listing insight object |
+| User insight | Summarizes user-level signals. | User insight object |
+| Comment insight | Summarizes comment-thread signals. | Comment insight object |
+| Brand insight | Summarizes brand signals. | Brand insight object |
+| Model insight | Summarizes model signals. | Model insight object |
+| Full-frame check | Detects whether a product fills the frame. | Product-in-frame response |
+| Multi-jersey detection | Detects and clusters multiple jerseys. | Cluster response |
+
+## Response shaping
+
+- `api_service/utils/openai_response_helper.py` normalizes model output into JSON.
+- It retries empty responses with a larger token budget and lower reasoning effort.
+- `api_service/domain/response_schemas.py` defines the structured payloads the prompts target.
+
+## Model guidance
+
+The scanner keeps brand-specific guidance in code constants.
+Current guidance covers:
+
+- Adidas
+- Bauer
+- CCM
+- Fanatics
+- Koho
+- Nike
+- Pro Player
+- Reebok
+- Starter
+
+## See also
+
+- [AI Jersey Scanner](/ai-jersey-scanner)
+- [Scanner pipeline](/ai-jersey-scanner/pipeline)
+- [Vision models](/ai-jersey-scanner/vision-models)

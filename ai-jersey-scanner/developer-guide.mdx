@@ -1,0 +1,55 @@
+---
+title: Developer Guide
+description: How to run, test, and debug the scanner locally.
+---
+
+# Developer Guide
+
+## Prerequisites
+
+- Docker
+- Python with Pipenv
+- OpenAI API key
+- Optional: PostHog, Supabase, Make.com, and Pumice credentials
+
+## Local setup
+
+1. Create a local env file from `env.example`.
+2. Fill in `OPENAI_API_KEY` and `GPT_MODEL_NAME`.
+3. Run `make dev-install`.
+4. Run `make run`.
+
+`make run` starts the API on `http://localhost:8000` and the Streamlit UI on `http://localhost:8501`.
+Set `API_PORT` or `UI_PORT` if you need different ports.
+
+## Useful commands
+
+```bash
+cp env.example .env
+make dev-install
+make run
+API_PORT=8010 UI_PORT=8510 make run
+python3 -m pytest api_service/tests/test_openai_response_helper.py -q
+python3 -m pytest api_service/tests/test_listing_consistency.py -q
+python3 -m pytest api_service/tests/test_posthog_mismatch_tracking.py -q
+```
+
+## What to verify first
+
+- `GET /health`
+- `POST /process-images`
+- `POST /process-images/file-ids`
+- `POST /color-palette`
+- `POST /extract-info-listing`
+
+## Notes
+
+- The README still mentions `api_service/tests/test_health.py`, but that file is not present in the current test tree.
+- The Streamlit UI is a testing surface, not the production workflow.
+- `make` is equivalent to `docker-compose up --build`.
+
+## Related pages
+
+- [Structured outputs](/ai-jersey-scanner/structured-outputs)
+- [Observability](/ai-jersey-scanner/observability)
+- [Reference](/ai-jersey-scanner/reference)

@@ -14,9 +14,11 @@ flowchart LR
   Storage[(Supabase Storage)]
   Search[(Algolia)]
   Payments[(Stripe)]
-  AI[(OpenAI scanner)]
+  Scanner[AI Jersey Scanner]
+  Auth[Authentication service]
+  OpenAI[(OpenAI)]
+  Pinecone[(Pinecone)]
   External[External systems]
-  Auth[Auth prototype]
 
   Web --> Backend
   Mobile --> Backend
@@ -24,9 +26,11 @@ flowchart LR
   Backend <--> Storage
   Backend --> Search
   Backend --> Payments
-  Backend --> AI
+  Backend --> Scanner
+  Backend --> Auth
   Backend --> External
-  Backend -. placeholder .-> Auth
+  Scanner --> OpenAI
+  Auth --> Pinecone
 ```
 
 ## What this means
@@ -35,7 +39,7 @@ flowchart LR
 - The backend coordinates marketplace state, sync, moderation, and external service calls.
 - Supabase stores the source data, file assets, and derived workflow state.
 - Algolia stores the searchable marketplace index.
-- Specialized AI work lives outside the main repository boundaries.
+- Specialized AI work lives in dedicated scanner and authentication services outside the main repository boundary.
 
 ## Main code anchors
 
@@ -51,4 +55,5 @@ See also:
 - [System architecture](/system-architecture)
 - [Data flow](/data-flow)
 - [Request lifecycle](/request-lifecycle)
-
+- [AI Jersey Scanner](/ai-jersey-scanner)
+- [Authentication](/authentication)

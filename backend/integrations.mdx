@@ -13,6 +13,7 @@ The backend is the integration hub for the product.
 - Stripe
 - Algolia
 - OpenAI
+- Pinecone
 - eBay
 - Discord
 - Google Merchant
@@ -23,9 +24,13 @@ The backend is the integration hub for the product.
 - Bria
 - eBay is documented here as an internal-view-only integration surface.
 
+OpenAI powers the scanner service.
+Pinecone powers the authentication service.
+
 ## Source anchors
 
 - `src/backend/env/env.ts`
+- `src/backend/services/scanner/scannerService.ts`
 - `src/backend/routes/stripe.ts`
 - `src/backend/routes/ebay.ts`
 - `src/backend/routes/googleMerchant.ts`
@@ -35,5 +40,8 @@ The backend is the integration hub for the product.
 
 See also:
 
+- [Integration registry](/engineering-knowledge/integration-registry)
 - [External integrations](/reference/external-integrations)
 - [Technology stack](/technology-stack)
+- [AI Jersey Scanner](/ai-jersey-scanner)
+- [Authentication](/authentication)

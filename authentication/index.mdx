@@ -1,0 +1,39 @@
+---
+title: Authentication
+description: Image-based authenticity classification using embeddings and vector similarity.
+---
+
+# Authentication
+
+The authentication service scores a jersey image against reference data and returns a verdict.
+It is the platform's experimental image-matching path for authenticity evaluation.
+
+## What it does
+
+- accepts an uploaded jersey image on `POST /authenticate`
+- converts the image into a CLIP embedding
+- queries Pinecone for nearest reference images
+- aggregates nearest-match scores into a confidence value
+- returns the identified model, nearest matches, summary, and verdict
+
+## Core configuration
+
+- `PINECONE_INDEX_NAME` defaults to `jersey-reference`
+- `PINECONE_ENVIRONMENT` defaults to `us-east-1`
+- `EMBEDDING_MODEL` is `sentence-transformers/clip-ViT-B-32`
+- `EMBEDDING_DIMENSION` is `512`
+- `TOP_K_MATCHES` is `5`
+- `CONFIDENCE_THRESHOLD_HIGH` is `0.80`
+- `CONFIDENCE_THRESHOLD_MEDIUM` is `0.65`
+
+## How it fits
+
+- the main platform already stores authenticity state in product and history records
+- the auth service stays narrow and returns a structured verdict
+- the production call site still needs a source-anchored confirmation if you need the exact integration path
+
+## See also
+
+- [Authentication pipeline](/authentication/pipeline)
+- [Vision models](/ai-jersey-scanner/vision-models)
+- [Repository map](/repository-map)

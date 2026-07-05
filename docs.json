@@ -36,6 +36,89 @@
         ]
       },
       {
+        "tab": "AI Jersey Scanner",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["ai-jersey-scanner"]
+          },
+          {
+            "group": "Core",
+            "pages": [
+              "ai-jersey-scanner/architecture",
+              "ai-jersey-scanner/image-pipeline",
+              "ai-jersey-scanner/structured-outputs"
+            ]
+          },
+          {
+            "group": "AI",
+            "pages": [
+              "ai-jersey-scanner/vision-models",
+              "ai-jersey-scanner/prompting"
+            ]
+          },
+          {
+            "group": "Quality",
+            "pages": ["ai-jersey-scanner/evaluations"]
+          },
+          {
+            "group": "Operations",
+            "pages": [
+              "ai-jersey-scanner/observability",
+              "ai-jersey-scanner/failure-modes",
+              "ai-jersey-scanner/developer-guide"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": ["ai-jersey-scanner/reference"]
+          }
+        ]
+      },
+      {
+        "tab": "Authentication",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["authentication/index"]
+          },
+          {
+            "group": "Pipeline",
+            "pages": ["authentication/pipeline"]
+          }
+        ]
+      },
+      {
+        "tab": "Engineering Knowledge",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["engineering-knowledge/index"]
+          },
+          {
+            "group": "Maps",
+            "pages": [
+              "engineering-knowledge/platform-knowledge-graph",
+              "engineering-knowledge/engineering-relationships",
+              "engineering-knowledge/ownership-boundaries"
+            ]
+          },
+          {
+            "group": "Registry",
+            "pages": [
+              "engineering-knowledge/integration-registry",
+              "engineering-knowledge/terminology",
+              "engineering-knowledge/documentation-standards",
+              "engineering-knowledge/merge-strategy"
+            ]
+          },
+          {
+            "group": "Templates",
+            "pages": ["engineering-knowledge/templates/index"]
+          }
+        ]
+      },
+      {
         "tab": "Marketplace",
         "groups": [
           {
@@ -102,16 +185,6 @@
               "reference/external-integrations",
               "reference/coding-conventions",
               "reference/documentation-standards"
-            ]
-          },
-          {
-            "group": "External systems",
-            "pages": [
-              "placeholders/ai-jersey-scanner",
-              "placeholders/authentication-platform",
-              "placeholders/prompt-engineering",
-              "placeholders/vision-models",
-              "placeholders/authentication-pipeline"
             ]
           }
         ]

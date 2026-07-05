@@ -31,7 +31,7 @@ flowchart LR
 flowchart LR
   Upload[Upload image] --> Storage[(Supabase Storage)]
   Storage --> Backend[Backend API]
-  Backend --> Scanner[Scanner service]
+  Backend --> Scanner[AI Jersey Scanner]
   Scanner --> Backend
   Backend --> DB[(Supabase)]
 ```
@@ -40,10 +40,13 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  Image[Input image] --> Auth[Authentication prototype]
+  Image[Input image] --> Auth[Authentication service]
   Auth --> Pinecone[(Pinecone)]
   Pinecone --> Auth
+  Auth --> Verdict[Verdict and confidence]
 ```
+
+The platform stores the returned authenticity state in product and history records after the service responds.
 
 ## Why this matters
 
@@ -58,4 +61,5 @@ See also:
 
 - [Image upload lifecycle](/image-upload-lifecycle)
 - [Request lifecycle](/request-lifecycle)
-
+- [AI Jersey Scanner](/ai-jersey-scanner)
+- [Authentication](/authentication)

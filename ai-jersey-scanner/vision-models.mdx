@@ -1,0 +1,40 @@
+---
+title: Vision Models
+description: The model settings, brand hints, and fallback behavior used by the scanner.
+---
+
+# Vision Models
+
+## Model settings
+
+| Setting | Default | Used by |
+| --- | --- | --- |
+| `GPT_MODEL_NAME` | `gpt-5.5` | attribute extraction, model identification, title generation, and multi-jersey detection |
+| `COLOR_PALETTE_GPT_MODEL_NAME` | falls back to `GPT_MODEL_NAME` | color palette extraction |
+| `GPT_REASONING_EFFORT` | `high` | extraction and model identification calls |
+| `GPT_TEXT_VERBOSITY` | `low` | extraction and model identification calls |
+| `GPT_IMAGE_DETAIL` | `high` | image inputs for extraction and model identification |
+| `USE_FILE_IDS` | `false` | main upload workflow |
+
+## Brand-specific hints
+
+`BRAND_INSTRUCTIONS_MAPPING` injects brand-specific model clues before model identification runs.
+The current mapping covers Adidas, Bauer, CCM, Fanatics, Koho, Nike, Pro Player, Reebok, Starter, and Other.
+
+## Output conventions
+
+- `AttributeResponse` uses `null` for missing fields.
+- Jersey model fallback is `other-other`.
+- Non-hockey jerseys skip model identification and still get title and description generation.
+- `MultipleJerseysDetectionResponse` uses zero-indexed image clusters and a confidence score per cluster.
+
+## Notes
+
+- `check_if_full_frame` exists as a helper for future capture gating, but the main routes do not call it today.
+- `color_palette` currently asks the model for six colors.
+
+## Related pages
+
+- [Prompting](/ai-jersey-scanner/prompting)
+- [Structured outputs](/ai-jersey-scanner/structured-outputs)
+- [Failure modes](/ai-jersey-scanner/failure-modes)

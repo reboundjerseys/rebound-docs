@@ -1,0 +1,47 @@
+---
+title: Reference
+description: Compact scanner reference for runtime dependencies, env vars, and known quirks.
+---
+
+# Reference
+
+## Runtime dependencies
+
+- OpenAI Responses API
+- PostHog
+- Supabase
+- Make.com
+- Pumice
+- Render
+
+## Environment variables
+
+- `OPENAI_API_KEY`
+- `GPT_MODEL_NAME`
+- `COLOR_PALETTE_GPT_MODEL_NAME`
+- `GPT_REASONING_EFFORT`
+- `GPT_TEXT_VERBOSITY`
+- `GPT_IMAGE_DETAIL`
+- `USE_FILE_IDS`
+- `POSTHOG_API_KEY`
+- `POSTHOG_HOST`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `MAKE_WEBHOOK_URL`
+- `PUMICE_API_KEY`
+
+## Known quirks
+
+- `check_if_full_frame` exists but is not part of the active route flow.
+- `ListingStatus.VERIFIED` is spelled `verfied` in the code.
+- `render.yaml` includes optional `HELICONE_API_KEY`, but the current client wiring does not consume it.
+- `/color-palette` currently asks the model for six colors.
+
+## Related pages
+
+- [Prompting](/ai-jersey-scanner/prompting)
+- [Structured outputs](/ai-jersey-scanner/structured-outputs)
+- [Observability](/ai-jersey-scanner/observability)
+- [Developer guide](/ai-jersey-scanner/developer-guide)
+- [Integration registry](/engineering-knowledge/integration-registry)
+- [Backend integrations](/backend/integrations)

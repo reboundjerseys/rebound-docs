@@ -1,0 +1,81 @@
+---
+title: Documentation Standards
+description: How to write pages in this docs site so they stay consistent and useful.
+---
+
+# Documentation Standards
+
+## Writing style
+
+- Use active voice.
+- Address the reader directly with `you`.
+- Keep one idea per sentence.
+- Use sentence case for headings.
+- Keep paragraphs short.
+- Prefer concrete nouns over vague labels.
+
+## Page types
+
+- Architecture pages explain how the platform is shaped and why the boundary exists.
+- Reference pages capture stable facts, tables, and canonical terms.
+- Workflow pages show end-to-end paths with diagrams and minimal prose.
+- API pages document request shape, auth, errors, and consumers.
+- Database pages document tables, views, triggers, storage, and relationships.
+
+## Evidence order
+
+When a fact is not obvious, use this order:
+
+1. inventory
+2. current source code
+3. existing docs
+4. README files
+
+Do not speculate when the evidence is missing.
+Use a placeholder page or an explicit `TODO` instead.
+
+## Linking rules
+
+- Link to the canonical page instead of repeating a definition.
+- Prefer relative links inside this docs repo.
+- Use section links when the target page is long.
+- Keep related pages connected in both directions.
+
+## Naming conventions
+
+- Use kebab-case for page paths.
+- Use a single page per concept when possible.
+- Keep template names literal, not clever.
+- Keep placeholder page names obvious.
+
+## Diagrams
+
+- Use Mermaid for relationship and workflow diagrams.
+- Show the major system nodes only.
+- Keep labels short.
+- Annotate only verified edges.
+
+## Callouts and examples
+
+- Use examples when a term is easy to confuse.
+- Use a note when the reader needs context.
+- Use a warning only when a boundary or constraint matters.
+- Keep examples aligned with the real code paths.
+
+## Code references
+
+- Use backticks for file names, commands, and exact symbols.
+- Reference the owning file instead of scattering file lists across the page.
+- Keep code anchors close to the claim they support.
+
+## Cross-repository work
+
+- Add a placeholder page before the repository is documented.
+- Keep future-repo detail out of current pages until the inventory exists.
+- Merge new inventories through the knowledge graph instead of ad hoc edits.
+
+See also:
+
+- [Merge strategy](/engineering-knowledge/merge-strategy)
+- [Templates](/engineering-knowledge/templates)
+- [Reference documentation standards](/reference/documentation-standards)

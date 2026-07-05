@@ -1,0 +1,64 @@
+---
+title: Terminology
+description: Canonical definitions for the platform and its engineering vocabulary.
+---
+
+# Terminology
+
+Use one definition for each major concept.
+If a term already has a canonical meaning elsewhere, link to that page instead of redefining it.
+
+## Marketplace terms
+
+| Term | Definition | Notes |
+| --- | --- | --- |
+| Listing | The sellable marketplace offer. | See [Marketplace overview](/marketplace/overview). |
+| Product | The broader jersey record that can back a listing. | See [Marketplace overview](/marketplace/overview). |
+| Order | The committed purchase state. | See [Marketplace overview](/marketplace/overview). |
+| Checkout draft | The pre-commit state before an order is placed. | See [Marketplace overview](/marketplace/overview). |
+
+## Engineering terms
+
+| Term | Definition | Notes |
+| --- | --- | --- |
+| Repository | A version-controlled codebase that owns one documented unit of the platform. | Use the repository map for ownership. |
+| Application | A user-facing runtime surface such as web, mobile, or studio. | Keep it distinct from services. |
+| Service | A deployable backend runtime that exposes capabilities to other systems. | Examples include the backend API. |
+| Module | A code slice inside a repository that groups related behavior. | Prefer the smallest useful boundary. |
+| API | A request surface with a defined contract. | Could be HTTP or edge-function based. |
+| Edge Function | A Supabase-hosted serverless function. | Treat it as platform automation, not app UI. |
+| Database table | A persistent row store in Supabase. | Tables back the source of truth. |
+| View | A derived read model in Supabase. | Use for read-heavy or shaped data. |
+| Storage bucket | An object-store container in Supabase Storage. | Keep bucket names stable. |
+| Scheduled job | A time-based automation. | Use for recurring work. |
+| Background worker | Asynchronous processing that runs after an event or queue claim. | Prefer outbox or trigger-driven work. |
+| Event producer | A component that emits an event. | Pair it with a consumer when possible. |
+| Event consumer | A component that handles an emitted event. | Document the triggering source. |
+| Environment variable | Runtime configuration injected outside the code path. | Keep secrets out of docs. |
+| External integration | A third-party system the platform depends on. | Registry lives in engineering knowledge. |
+| Shared type | A contract used across more than one code path. | Keep the source of truth obvious. |
+| Authentication component | A component that establishes trust in a user, session, or asset. | Use a narrower term when possible. |
+| Marketplace component | A subsystem that shapes browse, listing, checkout, order, or messaging flows. | Keep commerce nouns aligned. |
+| Infrastructure component | A deployment, hosting, storage, or CI/CD building block. | Document platform ownership clearly. |
+| Scanner | The image-analysis system that extracts jersey attributes and listing data. | See [AI Jersey Scanner](/ai-jersey-scanner). |
+| Authenticity service | The image-matching system that scores jersey authenticity against reference data. | See [Authentication](/authentication). |
+| Confidence score | The numeric confidence attached to an analysis or verdict. | State the threshold when it matters. |
+| Evidence | The supporting data that backs a decision or verdict. | Prefer concrete evidence over inference. |
+| Processing pipeline | The ordered steps that turn input into output. | Show the major stages, not every helper. |
+| Prompt | The instruction bundle sent to a model. | Keep prompts near the system that owns them. |
+| Vision model | A model that interprets image input. | Keep the model and the prompt separate. |
+| Reference image | A curated image used to seed the authenticity index. | Stored as Pinecone vectors from `reference_images/`. |
+| Nearest match | The closest similarity hit returned from the authenticity index. | Used to build the verdict. |
+| Verdict | The final authenticity outcome. | Can be `authentic`, `counterfeit`, or `uncertain`. |
+| Confidence threshold | The cutoff that buckets an authenticity score into a verdict range. | High and medium thresholds are configured in the auth service. |
+
+## Imported AI terms
+
+The scanner and authentication repositories now have dedicated sections.
+Use those pages instead of the old placeholder links when you need implementation detail.
+
+See also:
+
+- [Reference glossary](/reference/glossary)
+- [Repository map](/repository-map)
+- [Marketplace overview](/marketplace/overview)

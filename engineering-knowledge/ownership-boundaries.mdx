@@ -1,0 +1,92 @@
+---
+title: Ownership Boundaries
+description: What each subsystem owns, receives, emits, and does not own.
+---
+
+# Ownership Boundaries
+
+This page keeps the boundary lines explicit.
+If a subsystem needs more detail, link to the owning page instead of expanding it here.
+
+## Backend API
+
+- Purpose: platform control plane for marketplace APIs, orchestration, and integrations.
+- Responsibilities: authentication and trust workflows, search sync, moderation, warehouse intake, scanner orchestration, authenticity verification, merchant sync, and webhook bridges.
+- Inputs: client requests, webhook callbacks, edge function events, and database-driven automation.
+- Outputs: JSON responses, database writes, sync jobs, and external service calls.
+- Dependencies: Supabase, Stripe, Algolia, AI Jersey Scanner, Authentication service, Discord, Google Merchant, eBay, Cybership, EasyPost, Make, Notion, Bria.
+- Consumers: web app, mobile app, and edge-function workflows.
+- External integrations: the systems listed above.
+
+## Web app
+
+- Purpose: browser-based marketplace, admin, and support surface.
+- Responsibilities: routing, composition, authenticated proxy calls, and public marketplace rendering.
+- Inputs: URL state, session state, backend responses, and Supabase-backed data.
+- Outputs: browser UI, backend proxy requests, and client-side navigation.
+- Dependencies: backend proxy helpers, Supabase client utilities, Stripe, PostHog, and Sanity content helpers.
+- Consumers: shoppers, sellers, moderators, and operators.
+- External integrations: backend API, Supabase, Stripe, PostHog, and Sanity.
+
+## Mobile app
+
+- Purpose: consumer marketplace and capture flows on iOS and Android.
+- Responsibilities: listing discovery, scanner capture, onboarding, checkout, messaging, and profile flows.
+- Inputs: device state, auth state, backend responses, and local scanner upload data.
+- Outputs: API requests, uploads, purchase actions, and device notifications.
+- Dependencies: Expo, Supabase, backend API, Stripe, OneSignal, PostHog, Google sign-in, and Apple sign-in.
+- Consumers: buyers, sellers, and scanners on mobile.
+- External integrations: Supabase, backend API, Stripe, OneSignal, PostHog, Google, and Apple.
+
+## AI Jersey Scanner
+
+- Purpose: jersey analysis and listing generation.
+- Responsibilities: extract attributes, detect multiple jerseys, generate titles and descriptions, extract palettes, and emit observability events.
+- Inputs: uploaded images, file IDs, extracted attributes, listing payloads, and forum thread payloads.
+- Outputs: structured attribute JSON, title and description payloads, palette hex codes, insight payloads, and tracking events.
+- Dependencies: OpenAI, PostHog, Supabase validation workflows, backend API, and the Streamlit UI.
+- Consumers: the backend API, the Streamlit UI, and future analysis workflows.
+- External integrations: OpenAI, PostHog, and Supabase.
+
+## Authentication service
+
+- Purpose: image-based authenticity scoring.
+- Responsibilities: embed images, query Pinecone, aggregate nearest-match scores, and return a verdict.
+- Inputs: uploaded images, reference vectors, and Pinecone config.
+- Outputs: identified model, confidence score, nearest matches, summary, and verdict.
+- Dependencies: CLIP embeddings, Pinecone, and FastAPI config.
+- Consumers: platform trust workflows and any backend route that integrates the service.
+- External integrations: Pinecone.
+
+## Sanity Studio
+
+- Purpose: structured content authoring.
+- Responsibilities: manage Sanity schemas and content that the web surface consumes.
+- Inputs: editor content and schema definitions.
+- Outputs: structured documents for web-rendered content.
+- Dependencies: Sanity Studio configuration and schema files.
+- Consumers: the web app and any future content-aware surfaces.
+- External integrations: Sanity APIs and hosting.
+
+## Supabase platform
+
+- Purpose: source data, storage, auth-adjacent state, and edge automation.
+- Responsibilities: persistence, storage, derived views, triggers, functions, and access rules.
+- Inputs: backend writes, client uploads, and database-level events.
+- Outputs: rows, objects, derived views, function responses, and trigger side effects.
+- Dependencies: Postgres, Supabase Storage, edge functions, and RLS policies.
+- Consumers: backend API, web app, mobile app, and automation flows.
+- External integrations: the platform services that read and write through Supabase.
+
+## Future repositories
+
+Keep new repositories out of this boundary matrix until their inventories are promoted.
+Keep the boundary line explicit instead of folding them into the current platform pages.
+
+See also:
+
+- [Repository map](/repository-map)
+- [Service boundaries](/service-boundaries)
+- [Platform knowledge graph](/engineering-knowledge/platform-knowledge-graph)
+- [AI Jersey Scanner](/ai-jersey-scanner)
+- [Authentication](/authentication)

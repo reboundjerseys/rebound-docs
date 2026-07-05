@@ -1,0 +1,52 @@
+---
+title: Integration Registry
+description: The verified external integrations, configuration anchors, and workflow touchpoints.
+---
+
+# Integration Registry
+
+This registry captures the platform's external systems.
+It is split into runtime integrations and deployment platforms so the registry stays easy to scan.
+
+## Runtime integrations
+
+| Integration | Purpose | Services using it | Configuration location | Primary workflows | Documented consumers |
+| --- | --- | --- | --- | --- | --- |
+| Supabase | Database, auth, storage, and edge functions | Backend API, web app, mobile app, AI Jersey Scanner | `src/backend/supabase/config.toml`, `src/backend/env/env.ts`, web and mobile env files | Marketplace state, uploads, triggers, and edge workflows | Backend platform workflows |
+| Stripe | Payments, connected accounts, payouts | Backend API, web app, mobile app | `src/backend/routes/stripe.ts`, edge functions, env vars | Checkout, Connect, payout, and legacy payment bridging | None beyond the current platform |
+| Algolia | Search and facet queries | Backend API, web app | `src/backend/routes/search.ts`, `src/backend/algolia` | Marketplace search, sync, and facets | None beyond the current platform |
+| OpenAI | Jersey analysis and generation | AI Jersey Scanner | Scanner env vars and scanner service anchors | Image analysis, title generation, description generation | [AI Jersey Scanner](/ai-jersey-scanner) |
+| Pinecone | Reference-image similarity search | Authentication service | Authentication env vars and setup script | Authenticity matching and verdict scoring | [Authentication](/authentication) |
+| PostHog | Analytics, instrumentation, and AI observability | Backend API, web app, mobile app, AI Jersey Scanner | Backend client, web env vars, mobile env vars, scanner `api_service/utils/ai_client.py` | Event tracking, product analytics, scanner LLM observability, and dashboard evals | [AI Jersey Scanner](/ai-jersey-scanner) |
+| Discord | Feedback and moderation notifications | Backend API | Backend env vars and Discord route handlers | Feedback and moderation alerts | None beyond the current platform |
+| Google | Merchant sync and sign-in support | Backend API, mobile app | Service account file, merchant env vars, mobile auth config | Merchant Center sync and Google sign-in | None beyond the current platform |
+| eBay | Listing import, seller sync, and webhook ingestion | Backend API, web proxy routes | eBay route handlers and OAuth helpers | Seller sync, import, and webhook handling | None beyond the current platform |
+| Cybership | Warehouse product and order push flows | Backend API | Cybership routes, services, and env vars | Product and order sync from warehouse flows | None beyond the current platform |
+| EasyPost | Address verification and shipping support | Backend API | Shipping and user-address route handlers | Shipping support and address validation | None beyond the current platform |
+| Make | Automation and webhook fan-out | Backend API | Backend webhook env vars | Feedback, reports, and notification automation | None beyond the current platform |
+| Notion | Scan accuracy tracking and tasking | Backend API | Scan accuracy route handlers and API key env vars | Internal documentation and accuracy logging | None beyond the current platform |
+| Bria | Background removal and image operations | Backend API | Bria route handlers and API token env vars | Image preprocessing and effects | None beyond the current platform |
+| OneSignal | Mobile notifications | Mobile app | Mobile env vars and native notification config | Push notification delivery | None beyond the current platform |
+
+## Deployment and hosting platforms
+
+| Platform | Purpose | Source anchors |
+| --- | --- | --- |
+| Render | Host target for the scanner service | `render.yaml` in the scanner repository |
+| Vercel | Docs and web hosting target | `docs.json`, web deployment config |
+
+## Reserved integrations
+
+These names are reserved extension points, not expanded integrations.
+
+- `Cloudflare`
+- `GitHub`
+
+Add a row only when the current inventory confirms the integration.
+
+See also:
+
+- [External integrations](/reference/external-integrations)
+- [Infrastructure overview](/infrastructure/overview)
+- [AI Jersey Scanner](/ai-jersey-scanner)
+- [Authentication](/authentication)
